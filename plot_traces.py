@@ -5,7 +5,7 @@ import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 
-import grand.io.root_trees as rt
+import data.io.root_trees as rt
 
 '''
 ## PLOTTING TRACES OF GRAND DATA FILES #
