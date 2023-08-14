@@ -35,8 +35,9 @@ if len(sys.argv)==2:
 if len(sys.argv)==1:
     nshow=0
     uid=49
-    #f='/home/olivier/GRAND/data/GP300/argentina/auger/GRANDfiles/td002000_f0004.root'
-    f='/home/marion/Documents/data_GRAND/data_Auger/td002002_f00010.root'
+    #f='/home/marion/Documents/data_GRAND/data_Auger/td002002_f00010.root'
+    f='/home/marion/Documents/data_GRAND/data_Auger/TD/td002002_f0009.root'
+
 
 print(f"Reading file ",f)
 #df = rt.DataFile(f)
@@ -59,6 +60,7 @@ tadc = df.tadc
 #tadc.get_entry(0)
 #print(tadc)
 listevt=tadc.get_list_of_events()  # (evt number, run number)
+print(listevt)
 nevents = len(listevt)
 if nshow>nevents:
     nshow=nevents
@@ -69,7 +71,7 @@ print("Run:",runid)
 subrun=runpath.split("_")[-1]
 print("Subrun:",subrun)
 tadc.get_event(listevt[0][0],listevt[0][1]) # Evt nb  & run nb of first event
-fsamp=tadc.adc_sampling_frequency[0]*1e6 #Hz #
+fsamp=tadc.adc_sampling_frequency[0]*1e6 #Hz 
 #print(tadc.get_traces_length())
 ndus = len(tadc.get_list_of_all_used_dus())
 print(ndus,"DUs in run:",tadc.get_list_of_all_used_dus())
